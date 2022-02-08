@@ -126,10 +126,14 @@ abstract class AbstractCallsTest {
 
   @After
   fun tearDown() {
-    executor.shutdown()
-    if (this::channel.isInitialized) {
+    if (::channel.isInitialized) {
       channel.shutdownNow()
       channel.awaitTermination(1, TimeUnit.SECONDS)
+    }
+
+    executor.shutdown()
+    while (!executor.isTerminated) {
+      executor.awaitTermination(1, TimeUnit.SECONDS)
     }
   }
 
@@ -183,7 +187,7 @@ abstract class AbstractCallsTest {
       if (method == impl.methodDescriptor) {
         builder.addMethod(impl)
       } else {
-        builder.addMethod(method, ServerCallHandler { _, _ -> TODO() })
+        builder.addMethod(method) { _, _ -> TODO() }
       }
     }
     return makeChannel(ServerInterceptors.intercept(builder.build(), *interceptors))
