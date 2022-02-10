@@ -58,7 +58,7 @@ def com_google_protobuf():
 def io_grpc_grpc_java():
     http_archive(
         name = "io_grpc_grpc_java",
-        sha256 = "f588804614fea2452dbb42517f874230b1a66a4afd7e7eefb0413c666fb821b8",
-        strip_prefix = "grpc-java-1.36.0",
-        url = "https://github.com/grpc/grpc-java/archive/v1.36.0.zip",
+        sha256 = "16cf4556c08b580efede083a9a972eb45060bfbf324cdafc4f9be098ac9e0f01",
+        strip_prefix = "grpc-java-1.44.0",
+        url = "https://github.com/grpc/grpc-java/archive/v1.44.0.zip",
     )
