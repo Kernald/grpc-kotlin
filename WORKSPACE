@@ -26,7 +26,6 @@ load(
     "@io_grpc_grpc_java//:repositories.bzl",
     "IO_GRPC_GRPC_JAVA_ARTIFACTS",
     "IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS",
-    "PROTOBUF_MAVEN_ARTIFACTS",
     "grpc_java_repositories",
 )
 
@@ -36,7 +35,7 @@ maven_install(
         "com.google.jimfs:jimfs:1.1",
         "com.google.truth.extensions:truth-proto-extension:1.0.1",
         "com.google.protobuf:protobuf-kotlin:3.18.0",
-    ] + IO_GRPC_GRPC_KOTLIN_ARTIFACTS + IO_GRPC_GRPC_JAVA_ARTIFACTS + PROTOBUF_MAVEN_ARTIFACTS,
+    ] + IO_GRPC_GRPC_KOTLIN_ARTIFACTS + IO_GRPC_GRPC_JAVA_ARTIFACTS,
     generate_compat_repositories = True,
     override_targets = dict(
         IO_GRPC_GRPC_KOTLIN_OVERRIDE_TARGETS.items() +
