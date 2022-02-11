@@ -29,7 +29,10 @@ load(
     "grpc_java_repositories",
 )
 
+# Protocol Buffers
 load("@com_google_protobuf//:protobuf_deps.bzl", "PROTOBUF_MAVEN_ARTIFACTS")
+load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+protobuf_deps()
 
 # Maven
 maven_install(
@@ -56,10 +59,6 @@ compat_repositories()
 grpc_kt_repositories()
 
 grpc_java_repositories()
-
-# Protocol Buffers
-load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
-protobuf_deps()
 
 # Kotlin
 load("@io_bazel_rules_kotlin//kotlin:repositories.bzl", "kotlin_repositories")
